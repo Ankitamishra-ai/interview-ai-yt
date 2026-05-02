@@ -12,10 +12,15 @@ const Register = () => {
     const {loading,handleRegister} = useAuth()
     
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        await handleRegister({username,email,password})
-        navigate("/")
+    e.preventDefault()
+    try {
+        await handleRegister({ username, email, password })
+        navigate("/")  // ✅ Only navigates if handleRegister succeeds
+    } catch (error) {
+        console.error("Registration error:", error)
+        alert("Registration failed. Please try again.") // optional
     }
+}
 
     if(loading){
         return (<main><h1>Loading.......</h1></main>)
