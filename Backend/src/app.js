@@ -7,8 +7,12 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: ["http://localhost:5173", "https://interview-ai-yt-two.vercel.app"],
-    //origin: "http://localhost:5173",
+    origin: [
+        "http://localhost:5173",
+        "https://interview-ai-yt-two.vercel.app",
+        "https://interview-aii.netlify.app"  // ✅ Add this
+    ],
+    
     credentials: true
 }))
 
